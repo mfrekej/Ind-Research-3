@@ -7,33 +7,54 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color: #f7f7f7;
+    background-color: #FF0000;
     margin: 0;
+    color: #00FF00; 
+    animation: pulse 2s infinite alternate;
 }
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
 header {
     width: 100%;
-    background-color: #add8e6; /* Calming blue */
-    color: #008080; /* Professional green */
+    background-color: #FF4500;
+    color: #ffffff; 
     text-align: center;
     padding: 20px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-    font-family: 'Roboto', sans-serif; /* Applying Roboto font */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for color changes */
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: float 5s infinite, fadeText 2s infinite;
 }
 
-header h1 {
-    font-size: 2.5em; /* Maintaining a balanced font size */
-    font-weight: bold; /* Emphasizes the title */
-    letter-spacing: 2px; /* Adds a touch of sophistication */
-    animation: fadeIn 1s ease-in-out forwards; /* Adding fade-in animation */
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
     }
-    to {
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeText {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
         opacity: 1;
     }
 }
@@ -41,55 +62,77 @@ header h1 {
 
 main {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to new rows */
-    justify-content: center; /* Centers items horizontally */
-    gap: 20px; /* Space between items */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
+    animation: shake 2s infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px);
+    }
 }
 
 .item {
     border: 1px solid #000000;
-    width: calc(50% - 10px); /* Two items per row with gap */
-    max-width: 25vh; /* Smaller width */
-    height: 35vh; /* Smaller height */
+    width: calc(50% - 10px);
+    max-width: 25vh;
+    height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: #F0F2F1;
+    background-color: #FFA500; 
     border-radius: 20px;
-    animation: fadeIn 1s ease-in-out;
+    animation: bounce 2s infinite;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
-    padding: 10px; /* Added padding to ensure content stays inside the border */
+    padding: 10px;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 .item:hover {
-    background-color: #E7E8E7;
-    transform: scale(1.05);
+    background-color: #FFFF00; 
+    transform: scale(1.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .image {
     max-width: 100%;
-    max-height: 18vh; /* Increased height for the image */
+    max-height: 18vh;
     margin: auto;
     background-color: aliceblue;
     transition: transform 0.3s ease;
-    object-fit: cover; /* Cover the area without stretching the image */
-    height: auto; /* Maintain aspect ratio */
-    
 }
 
 .image-wrapper {
     display: flex;
     justify-content: center;
     width: 100%;
-    overflow: hidden; /* Prevents overflow */
+    overflow: hidden;
 }
 
 .cart-add {
     display: block;
+    animation: spin 5s infinite linear;
+}
+
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }
 
 .desc {
@@ -104,12 +147,12 @@ main {
     text-align: center;
 }
 
-.cart-add, .price {
+.cart-add,.price {
     margin: auto;
 }
 
 .price {
-    font-size: 20px; /* Slightly smaller font size for the price */
+    font-size: 20px;
 }
 
 sup {
@@ -119,38 +162,19 @@ sup {
 button {
     padding: 5px;
     border-radius: 10px;
-    background-color: #008080; /* Green for action */
+    background-color: #008080;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover,
-button:focus {
-    outline: none; /* Removes default focus outline */
-    box-shadow: 0 0 0 3px #006600; /* Adds glow effect */
+button:hover {
+    background-color: #006600; 
 }
-
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 
 @media (min-width: 1024px) {
-    .item {
-         width: calc(33.333% - 15px); /* Three items per row with adjusted gap */
-         max-width: 32vw; /* Adjusted maximum width for better responsiveness */
-     }
- }
- 
- 
- 
+   .item {
+        width: calc(33.333% - 15px);
+        max-width: 32vw;
+    }
+}
