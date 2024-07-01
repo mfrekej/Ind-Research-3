@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' https://script.google.com">
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbys6DsUEUbqbQL_zZH4UHtiXQezP7CBTXFQzdO1giaKR2crHLixu-9k8NGSJhEV3I3jTg/exec';
+        const form = document.forms['survey1_form'];
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => alert("Thank you! Survey successfully submitted"))
+            .then(() => {window.location.reload(); })
+            .catch(error => console.error('Error ', error.message))
+        })
+    });
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .survey-container {
+            background: #fff;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 1em;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+        input[type="number"], select, input[type="radio"] {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="radio"] {
+            width: auto;
+            margin-right: 0.5em;
+        }
+        .form-group .radio-label {
+            display: inline-block;
+            margin-right: 1em;
+        }
+        button {
+            width: 100%;
+            padding: 1em;
+            border: none;
+            border-radius: 5px;
+            background: #fcb69f;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #ffecd2;
+            color: #fcb69f;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="survey-container">
+        <h1>Website 1 Feedback Survey</h1>
+        <form method="post" name="survey1_form">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="1" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="no_answer">Prefer not to answer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Quality of website</label>
+                <div>
+                    <label class="radio-label"><input type="radio" name="quality" value="very_good" required> Very Good</label>
+                    <label class="radio-label"><input type="radio" name="quality" value="good"> Good</label>
+                    <label class="radio-label"><input type="radio" name="quality" value="acceptable"> Acceptable</label>
+                    <label class="radio-label"><input type="radio" name="quality" value="poor"> Poor</label>
+                    <label class="radio-label"><input type="radio" name="quality" value="very_poor"> Very Poor</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Would you purchase from this site?</label>
+                <div>
+                    <label class="radio-label"><input type="radio" name="purchase" value="yes" required> Yes</label>
+                    <label class="radio-label"><input type="radio" name="purchase" value="no"> No</label>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storefront #1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    function alertBox() {
+        alert("Item Added to Cart!")
+    }
+    window.addEventListener('load', function() {
+    document.body.classList.remove('loading');
+});
+
+</script>
+<body class="loading">
+    <header>
+        <div class="header-container">
+            <h1>Explore Our Collection of Water Bottles</h1>
+            <p>Discover stylish and functional water bottles that suit your lifestyle.</p>
+        </div>
+    </header>
+    <main>
+        <div class="item">
+            <div class="image-wrapper">
+                <img src="contigo.webp" class="image">
+            </div>
+            <div class="text">
+                <p class="desc">Contigo Ashland 2.0 Leak-Proof Water Bottle with Lid</p>
+                <span class="price"><sup>$</sup>10<sup>98</sup></span>
+                <button onClick="alertBox()" class="cart-add">Add to Cart</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image-wrapper">
+                <img src="stanleyiceflow.webp" class="image">
+            </div>
+            <div class="text">
+                <p class="desc">Stanley IceFlow Stainless Steel Tumblr with Straw</p>
+                <span class="price"><sup>$</sup>35<sup>00</sup></span>
+                <button onClick="alertBox()" class="cart-add">Add to Cart</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image-wrapper">
+                <img src="hydroflaskwm.webp" class="image">
+            </div>
+            <div class="text">
+                <p class="desc">HydroFlask Wide Mouth Vacuum Stainless Steel Water Bottle</p>
+                <span class="price"><sup>$</sup>34<sup>45</sup></span>
+                <button onClick="alertBox()" class="cart-add">Add to Cart</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image-wrapper">
+                <img src="helimix.webp" class="image">
+            </div>
+            <div class="text">
+                <p class="desc">HELIMIX 2.0 Vortex Blender Shaker Bottle</p>
+                <span class="price"><sup>$</sup>24<sup>95</sup></span>
+                <button onClick="alertBox()" class="cart-add">Add to Cart</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image-wrapper">
+                <img src="owala.webp" class="image">
+            </div>
+            <div class="text">
+                <p class="desc">Owala FreeSip Insulated Stainless Steel Water Bottle</p>
+                <span class="price"><sup>$</sup>10<sup>98</sup></span>
+                <button onClick="alertBox()" class="cart-add">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
